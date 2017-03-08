@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://130.226.195.227:9591/galgelegtjeneste?wsdl" uri="wsdl/130.226.195.227_9591/galgelegtjeneste.wsdl"/>
+    <system systemId="http://130.226.195.227:9591/galgelegtjeneste?xsd=1" uri="wsdl/130.226.195.227_9591/galgelegtjeneste.xsd_1.xsd"/>
+</catalog>

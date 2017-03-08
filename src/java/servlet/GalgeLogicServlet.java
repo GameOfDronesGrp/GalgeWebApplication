@@ -7,15 +7,20 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
 
 /**
  *
  * @author mohammad
  */
+@WebServlet("/GalgeLogicServlet")
 public class GalgeLogicServlet extends HttpServlet {
 
     /**
@@ -70,6 +75,42 @@ public class GalgeLogicServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        URL url = new URL("http://130.226.195.227:9591/galgelegtjeneste?wsdl");
+        QName qname = new QName("http://galgeleg/", "GalgelogikService");
+        Service service = Service.create(url, qname);
+        GalgelegI game = service.getPort(GalgelegI.class);
+        
+        String gaet;
+        int liv = 7;
+        
+        System.out.println("- Spillet er startet -");
+        
+        while(!game.erSpilletSlut()){
+            System.out.println("Dit ord "+ game.getSynligtOrd());
+            System.out.println("Dine liv " + liv);
+            System.out.println("Gæt på et bogstav");
+            if(request.getParameter("submit") != null){
+                
+            }
+            gaet = "s";
+            game.gætBogstav(gaet);
+            if (!game.getOrdet().contains(gaet)) {
+                System.out.println("Du gættede forkert!");
+                liv--;
+            }else{
+                System.out.println("Du gættede rigtigt");
+            }
+            
+            if(game.erSpilletTabt()){
+                System.out.println("Du har tabt");
+            }else if(game.erSpilletVundet()){
+                System.out.println("Du har vundet");
+            }
+        }
+        game.nulstil();  
+
+        
         processRequest(request, response);
     }
 
