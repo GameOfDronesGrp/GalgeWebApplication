@@ -10,8 +10,9 @@
     </head>
     
     <body>
-        <p style="margin-top: 30px;"><center>Velkommen til Galgelegspillet</center></p>
+        <h1 style="margin-top: 30px;"><center>Velkommen til Galgelegspillet</center></h1>
 <p style="margin-top: 30px;"><center>Login for at start spilet</center></p>
+
 <form>
     <center>        
         <label for="username">User Name:</label>
@@ -23,11 +24,13 @@
         <input type="password" id="password" name="password" placeholder="password">
         <br>
         <br>
-        <input type="submit" value="Login">
-       
+        <input type="submit" value="Login"> 
     </center>
     
 </html>
 
+<%
 
 
+
+%>
