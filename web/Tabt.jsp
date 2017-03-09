@@ -1,21 +1,19 @@
-
+<%-- 
+    Document   : Tabt
+    Created on : Mar 9, 2017, 11:43:44 AM
+    Author     : Bulqe
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    
-      <head>
-     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-     <link rel="stylesheet" href="main.css">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="main.css">
         <title>Spil</title>
-         </head>
-         
-         
-      
-        
-   
+    </head>
     <body>
-        <header>
+                <header>
             
             <nav>
           <ul>
@@ -32,8 +30,8 @@
 	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
 	galgeleg.GalgelegI port = service.getGalgelogikPort();
 	// TODO process result here
-	java.lang.String result = port.getSynligtOrd();
-	out.println("Dit ord: "+result);
+	java.lang.String result = port.getOrdet();
+	out.println("Du tabte, Ordet var: "+result);
     } catch (Exception ex) {
         out.println("Kunne ikke få forbindelse til serveren" );
 	// TODO handle custom exceptions here
@@ -111,64 +109,24 @@
 
 
     <form> 
-         
-          <input   name="gaetbogstav" id="gaetbogstav" placeholder="Gaet et bogstav">
-          <input type="submit" value="gaet">
+        <input type="submit" name="SpilIgen" value="Spil Igen">
     </form>
 
-    <form> 
-        
-
- </form>
     <%
     try {
 	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
 	galgeleg.GalgelegI port = service.getGalgelogikPort();
-	 // TODO initialize WS operation arguments here
-	java.lang.String arg0 = request.getParameter("gaetbogstav");
-	port.gætBogstav(arg0);
+        if(request.getParameter("SpilIgen") != null){
+	port.nulstil();
         response.sendRedirect("Spil.jsp");
+    };
     } catch (Exception ex) {
 	// TODO handle custom exceptions here
     }
     %>
 
 
-    <%
-    try {
-	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
-	galgeleg.GalgelegI port = service.getGalgelogikPort();
-	// TODO process result here
-	boolean result = port.erSpilletTabt();
-	if(result){
-             response.sendRedirect("Tabt.jsp");
-        }
-    } catch (Exception ex) {
-	// TODO handle custom exceptions here
-    }
-    %>
-    
-    <%
-    try {
-	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
-	galgeleg.GalgelegI port = service.getGalgelogikPort();
-	// TODO process result here
-	boolean result = port.erSpilletVundet();
-	if(result){
-             response.sendRedirect("Vundet.jsp");
-        }
-    } catch (Exception ex) {
-	// TODO handle custom exceptions here
-    }
-    %>
-
-    
-    
     
     </body>
-                     
-  
-              
+
 </html>
-
-
