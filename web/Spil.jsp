@@ -112,7 +112,7 @@
 
     <form> 
          
-          <input   name="gætbogstav" id="gætbogstav" placeholder="Gæt et bogstav">
+          <input   name="gaetbogstav" id="gaetbogstav" placeholder="Gæt et bogstav">
           <input type="submit" value="gæt">
     </form>
 
@@ -125,7 +125,7 @@
 	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
 	galgeleg.GalgelegI port = service.getGalgelogikPort();
 	 // TODO initialize WS operation arguments here
-	java.lang.String arg0 = request.getParameter("gætbogstav");
+	java.lang.String arg0 = request.getParameter("gaetbogstav");
 	port.gætBogstav(arg0);
         response.sendRedirect("Spil.jsp");
     } catch (Exception ex) {
