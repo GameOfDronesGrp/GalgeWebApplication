@@ -31,7 +31,7 @@
 	galgeleg.GalgelegI port = service.getGalgelogikPort();
 	// TODO process result here
 	java.lang.String result = port.getOrdet();
-	out.println("Du vandt, Ordet du gaettede var: "+result);
+	out.println("Du vandt, Ordet du gættede var: "+result);
     } catch (Exception ex) {
         out.println("Kunne ikke få forbindelse til serveren" );
 	// TODO handle custom exceptions here
