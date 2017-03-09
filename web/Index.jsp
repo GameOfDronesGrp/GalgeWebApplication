@@ -14,40 +14,40 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     </head>
+    
 <script>
-function loginValidering(){
+function loginAlert(){
 if (username.value === "" || password.value === ""){
-alert ( "Brugernavn eller adgangskode er forkert, indtast venligst igen." );
+alert ("Brugernavn eller adgangskode er forkert, indtast venligst igen.");
 return false;
 }
-alert ( "Du er nu logget ind" );
+alert ("Du logger nu ind, hvis de indtastede oplysninger er korrekte");
 return true;
 }
+
 </script>
     <body>
         <h1 style="margin-top: 30px;"><center>Velkommen til Galgeleg</center></h1>
     <p style="margin-top: 30px;"><center>Login for at starte spillet</center></p>
 
-<form name="form" onsubmit="return loginValidering();">
+<form name="form" onsubmit="return loginAlert();">
     <table>
     <center>        
         <label for="username">Brugernavn:</label>
         <br>
         <input type="text" id="username" name="username" placeholder="sxxxxxx@student.dtu.dk">
         <br>
+        <br>
         <label for="password">Adgangskode</label>
         <br>
         <input type="password" id="password" name="password" placeholder="password">
         <br>
         <br>
-        <input type="submit" name="Submit" value="Login" onclick="loginValidering();">
+        <input type="submit" name="Submit" value="Login" onclick="loginAlert();">
     </center>
     </table>
     </form>
 
-
-
-    
     <%
        
     try {
@@ -60,13 +60,14 @@ return true;
 	boolean result = port.hentBruger(arg0, arg1);
             if(result){
             response.sendRedirect("Spil.jsp");
-        }else if(!result){
-           
+        }else{
+          %>  
+          <script>alert("Forkert brugernavn eller adgangskode");</script>
+           <%
         }
     
     } catch (Exception ex) {
-	out.println("Noget er gået galt");
-        response.sendRedirect("Spil.jsp");
+	
     }
     
     %>
