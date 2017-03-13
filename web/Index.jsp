@@ -32,7 +32,7 @@ return true;
 <form name="form" onsubmit="return loginAlert();">
     <table>
     <center>        
-        <label for="username">Brugernavn:</label>
+        <label for="username">DTU Brugernavn:</label>
         <br>
         <input type="text" id="username" name="username" placeholder="sxxxxxx@student.dtu.dk">
         <br>
@@ -61,7 +61,7 @@ return true;
             response.sendRedirect("Spil.jsp");
         }else{
           %>  
-          <script>alert("Indtast venligt gyldig brugernavn og adgangskode");</script>
+          <script>alert("Indtast venligst gyldig brugernavn og adgangskode");</script>
            <%
         }
     
