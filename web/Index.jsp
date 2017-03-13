@@ -21,7 +21,6 @@ if (username.value === "" || password.value === ""){
 alert ("Brugernavn eller adgangskode er forkert, indtast venligst igen.");
 return false;
 }
-alert ("Du logger nu ind, hvis de indtastede oplysninger er korrekte");
 return true;
 }
 
@@ -53,16 +52,16 @@ return true;
     try {
 	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
 	galgeleg.GalgelegI port = service.getGalgelogikPort();
-	 // TODO initialize WS operation arguments here
+	
 	java.lang.String arg0 = request.getParameter("username");
 	java.lang.String arg1 = request.getParameter("password");
-	// TODO process result here
+	
 	boolean result = port.hentBruger(arg0, arg1);
             if(result){
             response.sendRedirect("Spil.jsp");
         }else{
           %>  
-          <script>alert("Forkert brugernavn eller adgangskode");</script>
+          <script>alert("Indtast venligt gyldig brugernavn og adgangskode");</script>
            <%
         }
     
