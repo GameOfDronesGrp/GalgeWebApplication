@@ -17,7 +17,8 @@
             
             <nav>
           <ul>
-              <li> <a href="Index.jsp" > Log Ud </a></li>
+              <li> <a href="HighscoreIn.jsp" style="margin-right: 5px" > Highscore </a></li>
+              <li> <a href="Index.jsp" style="margin-left: 5px" > Log Ud </a></li>
           </ul>
           
           

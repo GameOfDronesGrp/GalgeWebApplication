@@ -12,6 +12,7 @@
         <title>Galgespil</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
     
     </head>
     
@@ -26,6 +27,13 @@ return true;
 
 </script>
     <body>
+                <header>         
+            <nav>
+          <ul>
+              <li> <a href="HighscoreOut.jsp" style="margin-right: 5px" > Highscore </a></li>
+          </ul>         
+      </nav>
+        </header>
         <h1 style="margin-top: 30px;"><center>Velkommen til Galgeleg</center></h1>
     <p style="margin-top: 30px;"><center>Login for at starte spillet</center></p>
 
