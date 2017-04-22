@@ -17,7 +17,7 @@
         <header>
             <nav>
                 <ul>
-                    <li> <a href="Index.jsp"> Log Ind </a></li>
+                    <li> <a href="Index.jsp"> Back to Login </a></li>
                 </ul>
             </nav>
         </header>
