@@ -4,6 +4,7 @@
     Author     : Bulqe
 --%>
 
+<%@page import="database.Connector"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -32,25 +33,6 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 
-<%
-    String id = request.getParameter("userId");
-	String driverName = "com.mysql.jdbc.Driver";
-	String connectionUrl = "jdbc:mysql://gruppe11sql.cxyxxbzjqour.us-west-2.rds.amazonaws.com";
-	String dbName = "GalgeLegDB";
-	String userId = "gruppe11";
-	String password = "gruppe11";
-        int port = 3306;
-	
-	try {
-		Class.forName(driverName);
-	} catch (ClassNotFoundException e) {
-		e.printStackTrace();
-	}
-	
-	Connection connection = null;
-	Statement statement = null;
-	ResultSet resultSet = null;
-%>
 <table align="center" cellpadding="5" cellspacing="5" border="1">
 <tr>
 
@@ -63,12 +45,13 @@
 	</tr>
    <%
 	try{	
-		connection = DriverManager.getConnection(connectionUrl+ ":" + port + "/" +dbName, userId, password);
-		statement=connection.createStatement();
-		String sql ="SELECT  @curRank := @curRank + 1  AS rank, user_id, score, time  FROM ( SELECT @curRank := 0) r,  Highscore h  ORDER BY  score DESC";
+                Connector connector = new Connector();
+                ResultSet resultSet = null;
 
-		resultSet = statement.executeQuery(sql);
-		while(resultSet.next()){
+                String sql = "SELECT  @curRank := @curRank + 1  AS rank, user_id, score, time  FROM ( SELECT @curRank := 0) r,  Highscore h  ORDER BY  score DESC";
+
+                resultSet = connector.doQuery(sql);
+                while (resultSet.next()) {
 	%>
 		<tr bgcolor="#DEB887">
 			
