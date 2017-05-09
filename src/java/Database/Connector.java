@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Connector {
-	private final String HOST     = "galgeproject.cxyxxbzjqour.us-west-2.rds.amazonaws.com";
+	private final String HOST     = "galgedb.cmhy1lnpclzv.eu-central-1.rds.amazonaws.com";
     private final int    PORT     = 3306;
-    private final String DATABASE = "Galgeproject";
+    private final String DATABASE = "galgedb";
     private final String USERNAME = "gruppe11"; 
     private final String PASSWORD = "gruppe11";
 		

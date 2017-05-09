@@ -27,11 +27,16 @@
         <h1><center> Galgelegspillet</center></h1>
                 <p><center>
     <%
+        
+        galgelegport.wsdl.GalgeServiceService service = new galgelegport.wsdl.GalgeServiceService();
+	galgelegport.wsdl.Galgelogik port = service.getGalgePort();
+        
+        java.lang.String brugernavn = request.getParameter("username");
+	java.lang.String kode = request.getParameter("password");
+        
     try {
-	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
-	galgeleg.GalgelegI port = service.getGalgelogikPort();
 	// TODO process result here
-	java.lang.String result = port.getOrdet();
+	java.lang.String result = port.getOrdet(brugernavn, kode);
 	out.println("Du tabte, Ordet var: "+result);
     } catch (Exception ex) {
         out.println("Kunne ikke få forbindelse til serveren" );
@@ -43,10 +48,8 @@
     <center><label for="BrugteBogstaver">
     <%
     try {
-	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
-	galgeleg.GalgelegI port = service.getGalgelogikPort();
 	// TODO process result here
-	java.util.List<java.lang.String> result = port.getBrugteBogstaver();
+	java.util.List<java.lang.String> result = port.getBrugteBogstaver(brugernavn, kode);
 	out.println("Brugte Bogstaver: "+result);
     } catch (Exception ex) {
         out.println("Kunne ikke få forbindelse til serveren" );
@@ -61,10 +64,8 @@
             <img src=
     <%
     try {
-	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
-	galgeleg.GalgelegI port = service.getGalgelogikPort();
 	// TODO process result here
-	int result = port.getAntalForkerteBogstaver();
+	int result = port.getAntalForkerteBogstaver(brugernavn, kode);
         String billede;
         switch(result){
             case 0: billede = "HangManBilleder/Hangman0.png";
@@ -115,10 +116,8 @@
 
     <%
     try {
-	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
-	galgeleg.GalgelegI port = service.getGalgelogikPort();
         if(request.getParameter("SpilIgen") != null){
-	port.nulstil();
+	port.nulstil(brugernavn, kode);
         response.sendRedirect("Spil.jsp");
     };
     } catch (Exception ex) {

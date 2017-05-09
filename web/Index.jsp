@@ -56,15 +56,14 @@ return true;
     </form>
 
     <%
+        galgelegport.wsdl.GalgeServiceService service = new galgelegport.wsdl.GalgeServiceService();
+	galgelegport.wsdl.Galgelogik port = service.getGalgePort();
        
+        java.lang.String brugernavn = request.getParameter("username");
+	java.lang.String kode = request.getParameter("password");
+        
     try {
-	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
-	galgeleg.GalgelegI port = service.getGalgelogikPort();
-	
-	java.lang.String arg0 = request.getParameter("username");
-	java.lang.String arg1 = request.getParameter("password");
-	
-	boolean result = port.hentBruger(arg0, arg1);
+	boolean result = port.hentBruger(brugernavn, kode);
             if(result){
             response.sendRedirect("Spil.jsp");
         }else{

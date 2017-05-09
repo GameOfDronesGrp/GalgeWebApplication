@@ -27,13 +27,19 @@
       </nav>
         </header>
         <h1><center> Galgelegspillet</center></h1>
-                <p><center>
+                <p><center>            
     <%
+        
+        galgelegport.wsdl.GalgeServiceService service = new galgelegport.wsdl.GalgeServiceService();
+	galgelegport.wsdl.Galgelogik port = service.getGalgePort();
+        
+        java.lang.String brugernavn = request.getParameter("username");
+	java.lang.String kode = request.getParameter("password");
     try {
-	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
-	galgeleg.GalgelegI port = service.getGalgelogikPort();
+
+
 	// TODO process result here
-	java.lang.String result = port.getSynligtOrd();
+	java.lang.String result = port.getSynligtOrd(brugernavn, kode);
 	out.println("Dit ord: "+result);
     } catch (Exception ex) {
         out.println("Kunne ikke få forbindelse til serveren" );
@@ -45,10 +51,9 @@
     <center><label for="BrugteBogstaver">
     <%
     try {
-	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
-	galgeleg.GalgelegI port = service.getGalgelogikPort();
+        
 	// TODO process result here
-	java.util.List<java.lang.String> result = port.getBrugteBogstaver();
+	java.util.List<java.lang.String> result = port.getBrugteBogstaver(brugernavn, kode);
 	out.println("Brugte Bogstaver: "+result);
     } catch (Exception ex) {
         out.println("Kunne ikke få forbindelse til serveren" );
@@ -63,10 +68,8 @@
             <img src=
     <%
     try {
-	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
-	galgeleg.GalgelegI port = service.getGalgelogikPort();
 	// TODO process result here
-	int result = port.getAntalForkerteBogstaver();
+	int result = port.getAntalForkerteBogstaver(brugernavn, kode);
         String billede;
         switch(result){
             case 0: billede = "HangManBilleder/Hangman0.png";
@@ -123,11 +126,9 @@
  </form>
     <%
     try {
-	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
-	galgeleg.GalgelegI port = service.getGalgelogikPort();
 	 // TODO initialize WS operation arguments here
 	java.lang.String arg0 = request.getParameter("gaetbogstav");
-	port.gætBogstav(arg0);
+	port.gætBogstav(brugernavn, kode, arg0);
         response.sendRedirect("Spil.jsp");
     } catch (Exception ex) {
 	// TODO handle custom exceptions here
@@ -137,10 +138,8 @@
 
     <%
     try {
-	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
-	galgeleg.GalgelegI port = service.getGalgelogikPort();
 	// TODO process result here
-	boolean result = port.erSpilletTabt();
+	boolean result = port.erSpilletTabt(brugernavn, kode);
 	if(result){
              response.sendRedirect("Tabt.jsp");
         }
@@ -151,10 +150,8 @@
     
     <%
     try {
-	galgeleg.GalgelogikService service = new galgeleg.GalgelogikService();
-	galgeleg.GalgelegI port = service.getGalgelogikPort();
 	// TODO process result here
-	boolean result = port.erSpilletVundet();
+	boolean result = port.erSpilletVundet(brugernavn, kode);
 	if(result){
              response.sendRedirect("Vundet.jsp");
         }
