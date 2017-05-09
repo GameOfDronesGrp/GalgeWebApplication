@@ -43,7 +43,7 @@ return true;
     <center>        
         <label for="username">DTU Brugernavn:</label>
         <br>
-        <input type="text" id="username" name="username" placeholder="sxxxxxx@student.dtu.dk">
+        <input type="text" id="username" name="username" placeholder="sxxxxxx">
         <br>
         <br>
         <label for="password">Adgangskode</label>
@@ -57,6 +57,23 @@ return true;
     </form>
 
     <%
+        
+        Cookie loginCookie = null;
+    	Cookie[] cookies = request.getCookies();
+    	if(cookies != null){
+            for(Cookie cookie : cookies){
+    		if(cookie.getName().equals("brugernavn")){
+                    loginCookie = cookie;
+                    break;
+    		}
+            }
+    	}
+    	if(loginCookie != null){
+    		loginCookie.setMaxAge(0);
+        	response.addCookie(loginCookie);
+    	}
+        
+        
         galgelegport.wsdl.GalgeServiceService service = new galgelegport.wsdl.GalgeServiceService();
 	galgelegport.wsdl.Galgelogik port = service.getGalgePort();
        
@@ -64,12 +81,16 @@ return true;
 	java.lang.String kode = request.getParameter("password");
         
         BrugerLogIn log = new BrugerLogIn();
-        log.setBrugernavn("s143591");
-        log.setPass("bulqe1234");
+        log.setBrugernavn(brugernavn);
+        log.setPass(kode);
         
     try {
 	boolean result = port.hentBruger(brugernavn, kode);
             if(result){
+            loginCookie = new Cookie("brugernavn",brugernavn);
+            //setting cookie to expiry in 30 mins
+            loginCookie.setMaxAge(30*60);
+            response.addCookie(loginCookie);
             response.sendRedirect("Spil.jsp");
         }else{
           %>  

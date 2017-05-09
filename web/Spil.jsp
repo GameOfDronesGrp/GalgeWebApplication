@@ -11,7 +11,21 @@
         <title>Spil</title>
          </head>
          
-         
+         <%
+             
+        BrugerLogIn log = new BrugerLogIn();
+        String brugernavn = log.getBrugernavn();
+             
+        String userName = null;
+        Cookie[] cookies = request.getCookies();
+        if(cookies !=null){
+        for(Cookie cookie : cookies){
+	if(cookie.getName().equals("brugernavn")) userName = cookie.getValue();
+        }
+        }
+        if(userName == null) response.sendRedirect("Index.jsp");             
+
+             %>
       
         
    
@@ -21,7 +35,7 @@
             <nav>
           <ul>
               <li> <a href="HighscoreIn.jsp" style="margin-right: 5px" > Highscore </a></li>
-              <li> <a href="Index.jsp" style="margin-left: 5px" > Log Ud </a></li>
+              <li> <a href="Index.jsp"  style="margin-left: 5px" > Log Ud </a></li>
           </ul>
           
           
@@ -35,8 +49,6 @@
 	galgelegport.wsdl.Galgelogik port = service.getGalgePort();
         
 
-        BrugerLogIn log = new BrugerLogIn();
-        String brugernavn = log.getBrugernavn();
         String kode = log.getPass();
         
     try {

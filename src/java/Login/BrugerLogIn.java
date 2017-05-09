@@ -5,10 +5,6 @@
  */
 package Login;
 
-/**
- *
- * @author Bulqe
- */
 public class BrugerLogIn {
     
 private String brugernavn,pass;  
@@ -17,8 +13,8 @@ public String getBrugernavn() {
     return brugernavn;  
 }  
   
-public void setBrugernavn(String email) {  
-    this.brugernavn = email;  
+public void setBrugernavn(String brugernavn) {  
+    this.brugernavn = brugernavn;  
 }  
   
 public String getPass() {  
