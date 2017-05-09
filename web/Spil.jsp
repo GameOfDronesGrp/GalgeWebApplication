@@ -1,5 +1,6 @@
 
 
+<%@page import="Login.BrugerLogIn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -33,8 +34,11 @@
         galgelegport.wsdl.GalgeServiceService service = new galgelegport.wsdl.GalgeServiceService();
 	galgelegport.wsdl.Galgelogik port = service.getGalgePort();
         
-        java.lang.String brugernavn = request.getParameter("username");
-	java.lang.String kode = request.getParameter("password");
+
+        BrugerLogIn log = new BrugerLogIn();
+        String brugernavn = log.getBrugernavn();
+        String kode = log.getPass();
+        
     try {
 
 
