@@ -2,4 +2,6 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://130.226.195.227:9591/galgelegtjeneste?wsdl" uri="src/conf/xml-resources/web-service-references/galgelegtjeneste/wsdl/130.226.195.227_9591/galgelegtjeneste.wsdl"/>
     <system systemId="http://130.226.195.227:9591/galgelegtjeneste?xsd=1" uri="src/conf/xml-resources/web-service-references/galgelegtjeneste/wsdl/130.226.195.227_9591/galgelegtjeneste.xsd_1.xsd"/>
+    <system systemId="http://ubuntu4.javabog.dk:9591/Gruppe11/GalgeService?wsdl" uri="src/conf/xml-resources/web-service-references/GalgeService/wsdl/ubuntu4.javabog.dk_9591/Gruppe11/GalgeService.wsdl"/>
+    <system systemId="http://ubuntu4.javabog.dk:9591/Gruppe11?xsd=1" uri="src/conf/xml-resources/web-service-references/GalgeService/wsdl/ubuntu4.javabog.dk_9591/Gruppe11.xsd_1.xsd"/>
 </catalog>

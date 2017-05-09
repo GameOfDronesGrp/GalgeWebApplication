@@ -43,32 +43,36 @@
             <td><b>Score</b></td>
             <td><b>Time</b></td>
         </tr>
-        <%
-            try {
-                Connector connector = new Connector();
-                ResultSet resultSet = null;
+    <%
+    try {
+	galgelegport.wsdl.GalgeServiceService service = new galgelegport.wsdl.GalgeServiceService();
+	galgelegport.wsdl.Galgelogik port = service.getGalgePort();
+	 // TODO initialize WS operation arguments here
+        java.lang.String brugernavn = request.getParameter("username");
+	java.lang.String kode = request.getParameter("password");
+	// TODO process result here
+	java.util.List<galgelegport.wsdl.ScoreDTO> result = port.getRankList(brugernavn, kode);
+        for(int i=0; i <result.size() ;i++){
+            %>
+            
+                    <tr bgcolor="#DEB887">
 
-                String sql = "SELECT  @curRank := @curRank + 1  AS rank, user_id, score, time  FROM ( SELECT @curRank := 0) r,  Highscore h  ORDER BY  score DESC";
-
-                resultSet = connector.doQuery(sql);
-                while (resultSet.next()) {
-        %>
-        <tr bgcolor="#DEB887">
-
-            <td><%=resultSet.getString("rank")%></td>
-            <td><%=resultSet.getString("user_id")%></td>
-            <td><%=resultSet.getString("score")%></td>
-            <td><%=resultSet.getString("time")%></td>
+            <td><%=i+1%></td>
+            <td><%=""%></td>
+            <td><%=result.get(i).getScore()%></td>
+            <td><%=result.get(i).getDatetime()%></td>
 
         </tr>
-
-        <%
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        %>
+            
+            
+            <%
+        }
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    
+   
+    %>    
     </table>
 
 </body>

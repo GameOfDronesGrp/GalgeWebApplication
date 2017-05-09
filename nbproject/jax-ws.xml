@@ -3,10 +3,10 @@
   <services>
   </services>
   <clients>
-    <client name="galgelegtjeneste">
-      <wsdl-url>http://130.226.195.227:9591/galgelegtjeneste?wsdl</wsdl-url>
-      <local-wsdl-file>130.226.195.227_9591/galgelegtjeneste.wsdl</local-wsdl-file>
-      <package-name>galgeleg</package-name>
+    <client name="GalgeService">
+      <wsdl-url>http://ubuntu4.javabog.dk:9591/Gruppe11/GalgeService?wsdl</wsdl-url>
+      <local-wsdl-file>ubuntu4.javabog.dk_9591/Gruppe11/GalgeService.wsdl</local-wsdl-file>
+      <package-name>galgelegport.wsdl</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -23,7 +23,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://130.226.195.227:9591/galgelegtjeneste?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://ubuntu4.javabog.dk:9591/Gruppe11/GalgeService?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

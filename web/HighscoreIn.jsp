@@ -53,13 +53,12 @@
 	java.lang.String kode = request.getParameter("password");
 	// TODO process result here
 	java.util.List<galgelegport.wsdl.ScoreDTO> result = port.getRankList(brugernavn, kode);
-	out.println("Result = "+result);
         for(int i=0; i <result.size() ;i++){
             %>
             
                     <tr bgcolor="#DEB887">
 
-            <td><%=""%></td>
+            <td><%=i+1%></td>
             <td><%=""%></td>
             <td><%=result.get(i).getScore()%></td>
             <td><%=result.get(i).getDatetime()%></td>
