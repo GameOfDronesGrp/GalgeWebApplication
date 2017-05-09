@@ -1,10 +1,8 @@
 <%-- 
     Document   : Vundet
     Created on : Mar 9, 2017, 11:44:06 AM
-    Author     : Bulqe
 --%>
 
-<%@page import="Login.BrugerLogIn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,10 +14,7 @@
     <body>
         
                  <%
-             
-        BrugerLogIn log = new BrugerLogIn();
-        String brugernavn = log.getBrugernavn();
-             
+                         
         String userName = null;
         Cookie[] cookies = request.getCookies();
         if(cookies !=null){
@@ -48,7 +43,8 @@
         galgelegport.wsdl.GalgeServiceService service = new galgelegport.wsdl.GalgeServiceService();
 	galgelegport.wsdl.Galgelogik port = service.getGalgePort();
         
-        String kode = log.getPass();
+        String brugernavn = session.getAttribute("name").toString();
+        String kode = session.getAttribute("pass").toString();
         
     try {
 	// TODO process result here

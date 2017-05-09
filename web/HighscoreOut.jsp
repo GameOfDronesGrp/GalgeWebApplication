@@ -1,7 +1,6 @@
 <%-- 
     Document   : HighscoreOut
     Created on : Apr 22, 2017, 12:27:29 PM
-    Author     : Bulqe
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

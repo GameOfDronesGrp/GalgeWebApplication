@@ -1,7 +1,6 @@
 <%-- 
     Document   : HighscoreIn
     Created on : Apr 22, 2017, 12:27:29 PM
-    Author     : Bulqe
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -32,10 +31,20 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 
-<table align="center" cellpadding="5" cellspacing="5" border="1">
-<tr>
+                 <%
+                          
+        String userName = null;
+        Cookie[] cookies = request.getCookies();
+        if(cookies !=null){
+        for(Cookie cookie : cookies){
+	if(cookie.getName().equals("brugernavn")) userName = cookie.getValue();
+        }
+        }
+        if(userName == null) response.sendRedirect("HighscoreOut.jsp");             
 
-</tr>
+             %>
+
+<table align="center" cellpadding="5" cellspacing="5" border="1">
 	<tr bgcolor="#A52A2A">
 		<td><b>Rank</b></td>
 		<td><b>Username</b></td>

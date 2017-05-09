@@ -1,6 +1,4 @@
 
-
-<%@page import="Login.BrugerLogIn"%>
 <%@page import="javax.security.auth.login.LoginException"%>
 <%@page import="javax.xml.namespace.QName"%>
 <%@page import="javax.xml.ws.Service"%>
@@ -80,9 +78,8 @@ return true;
         java.lang.String brugernavn = request.getParameter("username");
 	java.lang.String kode = request.getParameter("password");
         
-        BrugerLogIn log = new BrugerLogIn();
-        log.setBrugernavn(brugernavn);
-        log.setPass(kode);
+        session.setAttribute("name",brugernavn);
+        session.setAttribute("pass",kode);
         
     try {
 	boolean result = port.hentBruger(brugernavn, kode);

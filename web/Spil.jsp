@@ -1,6 +1,5 @@
 
 
-<%@page import="Login.BrugerLogIn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,9 +11,6 @@
          </head>
          
          <%
-             
-        BrugerLogIn log = new BrugerLogIn();
-        String brugernavn = log.getBrugernavn();
              
         String userName = null;
         Cookie[] cookies = request.getCookies();
@@ -42,15 +38,14 @@
       </nav>
         </header>
         <h1><center> Galgelegspillet</center></h1>
-                <p><center>            
+                <p><center> 
     <%
         
         galgelegport.wsdl.GalgeServiceService service = new galgelegport.wsdl.GalgeServiceService();
 	galgelegport.wsdl.Galgelogik port = service.getGalgePort();
         
-
-        String kode = log.getPass();
-        
+        String brugernavn = session.getAttribute("name").toString();
+        String kode = session.getAttribute("pass").toString();
     try {
 
 
