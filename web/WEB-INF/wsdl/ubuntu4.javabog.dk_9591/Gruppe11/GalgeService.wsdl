@@ -4,17 +4,17 @@
 <xsd:import namespace="http://galgelegport/wsdl" schemaLocation="http://ubuntu4.javabog.dk:9591/Gruppe11?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="erSpilletTabt">
-<part name="parameters" element="tns:erSpilletTabt"></part>
+<message name="gætBogstav">
+<part name="parameters" element="tns:gætBogstav"></part>
 </message>
-<message name="erSpilletTabtResponse">
-<part name="parameters" element="tns:erSpilletTabtResponse"></part>
+<message name="gætBogstavResponse">
+<part name="parameters" element="tns:gætBogstavResponse"></part>
 </message>
-<message name="erSpilletSlut">
-<part name="parameters" element="tns:erSpilletSlut"></part>
+<message name="hentBruger">
+<part name="parameters" element="tns:hentBruger"></part>
 </message>
-<message name="erSpilletSlutResponse">
-<part name="parameters" element="tns:erSpilletSlutResponse"></part>
+<message name="hentBrugerResponse">
+<part name="parameters" element="tns:hentBrugerResponse"></part>
 </message>
 <message name="sayHello">
 <part name="parameters" element="tns:sayHello"></part>
@@ -58,29 +58,29 @@
 <message name="erSpilletVundetResponse">
 <part name="parameters" element="tns:erSpilletVundetResponse"></part>
 </message>
+<message name="erSpilletTabt">
+<part name="parameters" element="tns:erSpilletTabt"></part>
+</message>
+<message name="erSpilletTabtResponse">
+<part name="parameters" element="tns:erSpilletTabtResponse"></part>
+</message>
+<message name="erSpilletSlut">
+<part name="parameters" element="tns:erSpilletSlut"></part>
+</message>
+<message name="erSpilletSlutResponse">
+<part name="parameters" element="tns:erSpilletSlutResponse"></part>
+</message>
 <message name="nulstil">
 <part name="parameters" element="tns:nulstil"></part>
 </message>
 <message name="nulstilResponse">
 <part name="parameters" element="tns:nulstilResponse"></part>
 </message>
-<message name="gætBogstav">
-<part name="parameters" element="tns:gætBogstav"></part>
-</message>
-<message name="gætBogstavResponse">
-<part name="parameters" element="tns:gætBogstavResponse"></part>
-</message>
 <message name="opdaterSynligtOrd">
 <part name="parameters" element="tns:opdaterSynligtOrd"></part>
 </message>
 <message name="opdaterSynligtOrdResponse">
 <part name="parameters" element="tns:opdaterSynligtOrdResponse"></part>
-</message>
-<message name="hentBruger">
-<part name="parameters" element="tns:hentBruger"></part>
-</message>
-<message name="hentBrugerResponse">
-<part name="parameters" element="tns:hentBrugerResponse"></part>
 </message>
 <message name="getFornavn">
 <part name="parameters" element="tns:getFornavn"></part>
@@ -107,13 +107,13 @@
 <part name="parameters" element="tns:toStringResponse"></part>
 </message>
 <portType name="Galgelogik">
-<operation name="erSpilletTabt">
-<input wsam:Action="http://galgelegport/wsdl/Galgelogik/erSpilletTabtRequest" message="tns:erSpilletTabt"></input>
-<output wsam:Action="http://galgelegport/wsdl/Galgelogik/erSpilletTabtResponse" message="tns:erSpilletTabtResponse"></output>
+<operation name="gætBogstav">
+<input wsam:Action="http://galgelegport/wsdl/Galgelogik/gætBogstavRequest" message="tns:gætBogstav"></input>
+<output wsam:Action="http://galgelegport/wsdl/Galgelogik/gætBogstavResponse" message="tns:gætBogstavResponse"></output>
 </operation>
-<operation name="erSpilletSlut">
-<input wsam:Action="http://galgelegport/wsdl/Galgelogik/erSpilletSlutRequest" message="tns:erSpilletSlut"></input>
-<output wsam:Action="http://galgelegport/wsdl/Galgelogik/erSpilletSlutResponse" message="tns:erSpilletSlutResponse"></output>
+<operation name="hentBruger">
+<input wsam:Action="http://galgelegport/wsdl/Galgelogik/hentBrugerRequest" message="tns:hentBruger"></input>
+<output wsam:Action="http://galgelegport/wsdl/Galgelogik/hentBrugerResponse" message="tns:hentBrugerResponse"></output>
 </operation>
 <operation name="sayHello">
 <input wsam:Action="http://galgelegport/wsdl/Galgelogik/sayHelloRequest" message="tns:sayHello"></input>
@@ -143,21 +143,21 @@
 <input wsam:Action="http://galgelegport/wsdl/Galgelogik/erSpilletVundetRequest" message="tns:erSpilletVundet"></input>
 <output wsam:Action="http://galgelegport/wsdl/Galgelogik/erSpilletVundetResponse" message="tns:erSpilletVundetResponse"></output>
 </operation>
+<operation name="erSpilletTabt">
+<input wsam:Action="http://galgelegport/wsdl/Galgelogik/erSpilletTabtRequest" message="tns:erSpilletTabt"></input>
+<output wsam:Action="http://galgelegport/wsdl/Galgelogik/erSpilletTabtResponse" message="tns:erSpilletTabtResponse"></output>
+</operation>
+<operation name="erSpilletSlut">
+<input wsam:Action="http://galgelegport/wsdl/Galgelogik/erSpilletSlutRequest" message="tns:erSpilletSlut"></input>
+<output wsam:Action="http://galgelegport/wsdl/Galgelogik/erSpilletSlutResponse" message="tns:erSpilletSlutResponse"></output>
+</operation>
 <operation name="nulstil">
 <input wsam:Action="http://galgelegport/wsdl/Galgelogik/nulstilRequest" message="tns:nulstil"></input>
 <output wsam:Action="http://galgelegport/wsdl/Galgelogik/nulstilResponse" message="tns:nulstilResponse"></output>
 </operation>
-<operation name="gætBogstav">
-<input wsam:Action="http://galgelegport/wsdl/Galgelogik/gætBogstavRequest" message="tns:gætBogstav"></input>
-<output wsam:Action="http://galgelegport/wsdl/Galgelogik/gætBogstavResponse" message="tns:gætBogstavResponse"></output>
-</operation>
 <operation name="opdaterSynligtOrd">
 <input wsam:Action="http://galgelegport/wsdl/Galgelogik/opdaterSynligtOrdRequest" message="tns:opdaterSynligtOrd"></input>
 <output wsam:Action="http://galgelegport/wsdl/Galgelogik/opdaterSynligtOrdResponse" message="tns:opdaterSynligtOrdResponse"></output>
-</operation>
-<operation name="hentBruger">
-<input wsam:Action="http://galgelegport/wsdl/Galgelogik/hentBrugerRequest" message="tns:hentBruger"></input>
-<output wsam:Action="http://galgelegport/wsdl/Galgelogik/hentBrugerResponse" message="tns:hentBrugerResponse"></output>
 </operation>
 <operation name="getFornavn">
 <input wsam:Action="http://galgelegport/wsdl/Galgelogik/getFornavnRequest" message="tns:getFornavn"></input>
@@ -178,7 +178,7 @@
 </portType>
 <binding name="GalgePortBinding" type="tns:Galgelogik">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
-<operation name="erSpilletTabt">
+<operation name="gætBogstav">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -187,7 +187,7 @@
 <soap:body use="literal"></soap:body>
 </output>
 </operation>
-<operation name="erSpilletSlut">
+<operation name="hentBruger">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
@@ -259,6 +259,24 @@
 <soap:body use="literal"></soap:body>
 </output>
 </operation>
+<operation name="erSpilletTabt">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+</operation>
+<operation name="erSpilletSlut">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+</operation>
 <operation name="nulstil">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -268,25 +286,7 @@
 <soap:body use="literal"></soap:body>
 </output>
 </operation>
-<operation name="gætBogstav">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal"></soap:body>
-</input>
-<output>
-<soap:body use="literal"></soap:body>
-</output>
-</operation>
 <operation name="opdaterSynligtOrd">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal"></soap:body>
-</input>
-<output>
-<soap:body use="literal"></soap:body>
-</output>
-</operation>
-<operation name="hentBruger">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
