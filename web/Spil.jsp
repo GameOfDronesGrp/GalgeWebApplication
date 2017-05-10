@@ -44,8 +44,8 @@
         galgelegport.wsdl.GalgeServiceService service = new galgelegport.wsdl.GalgeServiceService();
 	galgelegport.wsdl.Galgelogik port = service.getGalgePort();
         
-        String brugernavn = session.getAttribute("name").toString();
-        String kode = session.getAttribute("pass").toString();
+        String brugernavn = (String)session.getAttribute("name");
+        String kode = (String) session.getAttribute("pass");
     try {
 
 

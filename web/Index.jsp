@@ -78,9 +78,9 @@ return true;
         String brugernavn = request.getParameter("username");
 	String kode = request.getParameter("password");
                 
-            session.setAttribute("name", brugernavn);
-            session.setAttribute("pass", kode);
-        
+            session.removeAttribute("name");
+            session.removeAttribute("pass");
+            
     try {
 	boolean result = port.hentBruger(brugernavn, kode);
             if(result){
@@ -88,6 +88,8 @@ return true;
             //setting cookie to expiry in 30 mins
             loginCookie.setMaxAge(30*60);
             response.addCookie(loginCookie);
+            session.setAttribute("name", brugernavn);
+            session.setAttribute("pass", kode);
             response.sendRedirect("Spil.jsp");
         }else{
           %>  
